@@ -58,9 +58,18 @@ body{
   color: rgb(233,50,117);
 }
 
+.links-container .navbar-link:active{
+  background-color: white;
+  color: rgb(233,50,117);
+}
+
 .container {
   margin: 0 auto;
   max-width: 64rem;
+}
+
+.container .narrow{
+  max-width: 56rem;
 }
 
 /*Medium screens (640px)*/
@@ -72,7 +81,7 @@ body{
     padding-right: 1rem;
   }
 
-  .column.full {width: 100%}
+  .column.full {width: 100%;}
   .column.two-thirds { width: 66.7%; }
   .column.half { width: 50%; }
   .column.third { width: 33.3%; }
