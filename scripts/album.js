@@ -28,6 +28,21 @@ var albumMarconi = {
   ]
 };
 
+var albumPizzaPizza = {
+  title: 'Pizza Please',
+  artist: 'Little Cesar',
+  label: 'Cheese',
+  year: '2017',
+  albumArtUrl: 'assets/images/album_covers/15.png',
+  songs: [
+    {title: 'More Cheese, Please', duartion: '1:01'},
+    {title: 'Extra Sauce on that', duration: '5:01'},
+    {title: 'Hawaiian', duration: '3:21'},
+    {title: 'Burger', duration: '3:14'},
+    {title: 'Meat Power!', duration: '2:15'}
+  ]
+};
+
 var createSongRow = function (songNumber, songName, songLength){
   var template = '<tr class = "album-view-song-item">' + '<td class = "song-item-number">' + songNumber + '</td>' + '<td class = "song-item-title">' + songName + '</td>' + 'td class = "song-item-duration">' + songLength + '</td>' + '</tr>';
 
@@ -57,3 +72,8 @@ var setCurrentAlbum = function(album){
 window.onload = function(){
   setCurrentAlbum(albumPicasso);
 };
+
+window.addEventListener('click', function(){
+
+});
+document.getElementById("myBtn").addEventListener("click", displayDate);
