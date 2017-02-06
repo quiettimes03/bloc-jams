@@ -29,7 +29,7 @@ var albumMarconi = {
 };
 
 var createSongRow = function (songNumber, songName, songLength){
-  var template = '<tr class = "album-view-song-item">' + '<td class = "song-item-number">' + songNumber + '</td>' + '<td class = "song-item-title">' + songName + '</td>' + 'td class = "song-item-duration">' + songLength + '</td>' + '</tr>';
+  var template = '<tr class = "album-view-song-item">' + '<td class = "song-item-number">' + songNumber + '</td>' + '<td class = "song-item-title">' + songName + '</td>' + '<td class = "song-item-duration">' + songLength + '</td>' + '</tr>';
 
   return template;
 
@@ -47,7 +47,7 @@ var setCurrentAlbum = function(album){
   albumReleaseInfo.firstChild.nodeValue = album.year + ' '+ album.label;
   albumImage.setAttribute('src', album.albumArtUrl);
 
-  albumSongList.innerHTML = ' ';
+  albumSongList.innerHTML = '';
 
   for (var i = 0; i < album.songs.length; i++){
     albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
