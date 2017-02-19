@@ -1,3 +1,18 @@
+var $holdSelector = $('.main-controls .play-pause');
+
+var togglePlayFromPlayerBar = function(){
+  if (currentlyPlayingSongNumber === playButtonTemplate && playerBarPlayButton.click()){
+    songNumberCell(pauseButtonTemplate);
+    $holdSelector.html(playerBarPauseButton);
+    setSong();
+  } else if (currentlyPlayingSongNumber === pauseButtonTemplate &&      playerBarPauseButton.click()){
+    songNumberCell(playButtonTemplate);
+    $holdSelector.html(playerBarPlayButton);
+  }
+
+};
+
+
 var setSong = function(songNumber){
   if (currentSoundFile){
     currentSoundFile.stop();
@@ -206,5 +221,6 @@ $(document).ready(function(){
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
+  $holdSelector.click(togglePlayFromPlayerBar);
 
 });
