@@ -125,7 +125,9 @@ var trackIndex = function(album, song) {
        // Set a new current song
        currentlyPlayingSongNumber = currentSongIndex + 1;
        currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+       setSong(currentSongIndex + 1);
        currentSoundFile.play();
+       updatePlayerBarSong();
 
        // Update the Player Bar information
        $('.currently-playing .song-name').text(currentSongFromAlbum.title);
@@ -161,7 +163,9 @@ var trackIndex = function(album, song) {
        // Set a new current song
        currentlyPlayingSongNumber = currentSongIndex + 1;
        currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+       setSong(currentSongIndex + 1);
        currentSoundFile.play();
+       updatePlayerBarSong();
 
        // Update the Player Bar information
        $('.currently-playing .song-name').text(currentSongFromAlbum.title);
