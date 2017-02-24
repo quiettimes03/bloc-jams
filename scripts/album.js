@@ -1,3 +1,18 @@
+var $holdSelector = $('.main-controls .play-pause');
+
+var togglePlayFromPlayerBar = function(){
+  if (!currentSoundFile || currentSoundFile.isPaused()){
+    
+    $holdSelector.html(playerBarPauseButton);
+    currentSoundFile.play();
+  } else {
+
+    $holdSelector.html(playerBarPlayButton);
+    currentSoundFile.pause();
+  }
+};
+
+
 var setSong = function(songNumber){
   if (currentSoundFile){
     currentSoundFile.stop();
@@ -291,5 +306,6 @@ $(document).ready(function(){
   setupSeekBars();
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
+  $holdSelector.click(togglePlayFromPlayerBar);
 
 });
