@@ -2,11 +2,11 @@ var $holdSelector = $('.main-controls .play-pause');
 
 var togglePlayFromPlayerBar = function(){
   if (!currentSoundFile || currentSoundFile.isPaused()){
-    songNumberCell = pauseButtonTemplate;
+    
     $holdSelector.html(playerBarPauseButton);
     currentSoundFile.play();
   } else {
-    songNumberCell = playButtonTemplate;
+
     $holdSelector.html(playerBarPlayButton);
     currentSoundFile.pause();
   }
@@ -140,7 +140,9 @@ var trackIndex = function(album, song) {
        // Set a new current song
        currentlyPlayingSongNumber = currentSongIndex + 1;
        currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+       setSong(currentSongIndex + 1);
        currentSoundFile.play();
+       updatePlayerBarSong();
 
        // Update the Player Bar information
        $('.currently-playing .song-name').text(currentSongFromAlbum.title);
@@ -176,7 +178,9 @@ var trackIndex = function(album, song) {
        // Set a new current song
        currentlyPlayingSongNumber = currentSongIndex + 1;
        currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+       setSong(currentSongIndex + 1);
        currentSoundFile.play();
+       updatePlayerBarSong();
 
        // Update the Player Bar information
        $('.currently-playing .song-name').text(currentSongFromAlbum.title);
