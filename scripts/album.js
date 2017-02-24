@@ -1,13 +1,14 @@
 var $holdSelector = $('.main-controls .play-pause');
 
 var togglePlayFromPlayerBar = function(){
+  var $album = $('.album-song-button');
   if (!currentSoundFile || currentSoundFile.isPaused()){
-    
     $holdSelector.html(playerBarPauseButton);
+    $album.html(pauseButtonTemplate);
     currentSoundFile.play();
   } else {
-
     $holdSelector.html(playerBarPlayButton);
+    $album.html(playButtonTemplate);
     currentSoundFile.pause();
   }
 };
