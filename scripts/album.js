@@ -1,3 +1,19 @@
+var setCurrentTimeInPlayerBar = function(currentTime){
+  $(".current-time").text(filterTimeCode(currentTime));
+};
+
+var setTotalTimeInPlayerBar = function(totalTime){
+  $(".total-time").text(filterTimeCode(totalTime));
+};
+
+var filterTimeCode = function(timeInSeconds){
+  var timeNum = parseFloat(timeInSeconds);
+  var minutes = Math.floor(timeInSeconds / 60);
+  var seconds = Math.floor(timeInSeconds % 60);
+  return minutes + ":" + seconds;
+};
+
+
 var setSong = function(songNumber){
   if (currentSoundFile){
     currentSoundFile.stop();
@@ -23,7 +39,7 @@ var getSongNumberCell = function(number){
 };
 
 var createSongRow = function (songNumber, songName, songLength){
-  var template = '<tr class = "album-view-song-item">' + '<td class = "song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>' + '<td class = "song-item-title">' + songName + '</td>' + '<td class = "song-item-duration">' + songLength + '</td>' + '</tr>';
+  var template = '<tr class = "album-view-song-item">' + '<td class = "song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>' + '<td class = "song-item-title">' + songName + '</td>' + '<td class = "song-item-duration">' + filterTimeCode(songLength) + '</td>' + '</tr>';
 
   var $row = $(template);
 
@@ -187,6 +203,7 @@ var updatePlayerBarSong = function(){
   $('.currently-playing .artist-name').text(currentAlbum.artist);
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
   $('.main-controls .play-pause').html(playerBarPauseButton);
+  setTotalTimeInPlayerBar(this.getDuration());
 };
 
 //Album buttom templates
@@ -215,6 +232,7 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
 
              updateSeekPercentage($seekBar, seekBarFillRatio);
+             setCurrentTimeInPlayerBar(this.getTime());
          });
      }
  };
